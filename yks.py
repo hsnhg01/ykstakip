@@ -1,5 +1,35 @@
 import streamlit as st
 
+# Sayfa Konfigürasyonu
+st.set_page_config(page_title="DFE Kozmetik", layout="wide")
+
+# Ortak Hafıza (Session State) Tanımlama
+if 'sepet' not in st.session_state:
+    st.session_state.sepet = []
+
+st.title("🧴 DFE Kozmetik Mağazası")
+
+# Ürün Verileri
+urunler = [
+    {"id": 1, "ad": "DFE Skin Serum", "fiyat": 449, "detay": "Işıltı veren formül"},
+    {"id": 2, "ad": "DFE Gece Kremi", "fiyat": 320, "detay": "Onarıcı bakım"},
+    {"id": 3, "ad": "DFE Tonik", "fiyat": 185, "detay": "Gözenek sıkılaştırıcı"}
+]
+
+# Ürünleri Listele
+cols = st.columns(3)
+for i, urun in enumerate(urunler):
+    with cols[i]:
+        st.markdown(f"### {urun['ad']}")
+        st.write(f"Fiyat: **₺{urun['fiyat']}**")
+        if st.button(f"🛒 Sepete Ekle", key=f"btn_{urun['id']}"):
+            st.session_state.sepet.append(urun)
+            st.toast(f"{urun['ad']} sepete eklendi!")
+
+st.sidebar.success(f"Sepette {len(st.session_state.sepet)} ürün var.")
+st.sidebar.info("Diğer sayfaya geçmek için sol menüyü kullanın (GitHub'da Pages özelliği).")
+import streamlit as st
+
 def kozmetik_urun_sergile():
     st.divider()
     st.subheader("🛍️ Önerilen Kozmetik Ürünleri")
