@@ -190,7 +190,7 @@ kalan = yks_tarihi - simdi
 st.markdown(f"""
     <div class="hero-section">
         <h1 style='margin:0;'>HASAN HÜSEYİN v6.0</h1>
-        <p style='font-size:18px; opacity:0.9;'>🎯 Hedef: Eşit Ağırlık İlk 10.000</p>
+        <p style='font-size:18px; opacity:0.9;'>🎯</p>
         <p style='font-family:monospace; color:#fbbf24; font-size:20px;'>{simdi.strftime('%H:%M:%S')} | YKS'ye {kalan.days} GÜN KALDI</p>
     </div>
     """, unsafe_allow_html=True)
