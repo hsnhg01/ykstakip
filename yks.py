@@ -1,4 +1,33 @@
 import streamlit as st
+
+# --- SATIN ALMA FONKSİYONU ---
+def satin_al_modulu():
+    with st.sidebar:
+        st.divider()
+        st.subheader("💎 Premium'a Geç")
+        st.write("Sınırsız analiz ve 10K tahmincisi için yükselt.")
+        
+        # Şık bir buton
+        if st.button("🚀 ELITE PAKETİ SATIN AL"):
+            st.balloons() # Görsel şölen
+            st.info("Ödeme sayfasına yönlendiriliyorsunuz...")
+            
+            # Açılır pencere (Modal)
+            with st.expander("💳 ÖDEME DETAYLARI", expanded=True):
+                st.markdown("""
+                ### Hasan Hüseyin 10K Elite
+                * **Fiyat:** ₺199 / Dönemlik
+                * **İçerik:** Kişiye özel yapay zeka koçu, 7/24 takip.
+                
+                ---
+                **IBAN ile Öde:** `TR00 0000 0000 0000 0000 00`
+                *(Açıklamaya adınızı yazınız)*
+                """)
+                st.warning("Ödeme sonrası aktivasyon 5 dakika sürer.")
+
+# Kodu çalıştırmak için ana fonksiyona ekle:
+satin_al_modulu()
+import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
 import time
