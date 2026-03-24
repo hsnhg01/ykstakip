@@ -1,5 +1,43 @@
 import streamlit as st
 
+def kozmetik_urun_sergile():
+    st.divider()
+    st.subheader("🛍️ Önerilen Kozmetik Ürünleri")
+    
+    # Sayfayı ikiye bölelim (Ürün kartı için)
+    col1, col2 = st.columns([1, 2])
+    
+    with col1:
+        # Resim yeri (Resim yok, gri bir kutu ve yazı var)
+        st.markdown("""
+            <div style="width:100%; height:200px; background-color:#334155; 
+            border-radius:10px; display:flex; align-items:center; justify-content:center; 
+            border:2px dashed #94a3b8;">
+                <span style="color:#94a3b8; font-weight:bold;">ÜRÜN GÖRSELİ</span>
+            </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("### DFE Glossy Skin Serum")
+        st.write("**Marka:** DFE Cosmetics")
+        st.write("**Açıklama:** Cildinize 2025 ışıltısını katan, gözenek sıkılaştırıcı özel formül.")
+        st.write("💰 **Fiyat:** ₺449.00")
+        
+        # Sepete Ekle Butonu
+        if st.button("🛒 SEPETE EKLE", key="dfe_sepet"):
+            st.toast("Ürün başarıyla sepete eklendi! 🧴", icon="✅")
+            # Sepet sayacı simülasyonu
+            if 'sepet_sayisi' not in st.session_state:
+                st.session_state.sepet_sayisi = 1
+            else:
+                st.session_state.sepet_sayisi += 1
+            
+            st.sidebar.success(f"Sepetinizde {st.session_state.sepet_sayisi} ürün var.")
+
+# Fonksiyonu çalıştır
+kozmetik_urun_sergile()
+import streamlit as st
+
 # --- SATIN ALMA FONKSİYONU ---
 def satin_al_modulu():
     with st.sidebar:
